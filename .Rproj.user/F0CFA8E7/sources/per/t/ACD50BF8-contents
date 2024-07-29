@@ -1,0 +1,81 @@
+---
+title             : "Media Multitasking and Cognitive Control: Unveiling Patterns in Focused Attention"
+shorttitle        : "Title"
+
+author: 
+  - name          : "Manuel Althaler"
+    affiliation   : "1"
+    corresponding : yes    # Define only one corresponding author
+    address       : "Postal address"
+    email         : "my@email.com"
+    role: # Contributorship roles (e.g., CRediT, https://credit.niso.org/)
+      - "Conceptualization"
+      - "Writing - Original Draft Preparation"
+      - "Writing - Review & Editing"
+affiliation:
+  - id            : "1"
+    institution   : "University of Vienna"
+  - id            : "2"
+    institution   : "Konstanz Business School"
+
+authornote: |
+  Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
+
+  Enter author note here.
+
+abstract: |
+This study explores  the impact of Media Multitasking on cognitive control, specifically focused attention, within the context of Intermediate Media Multitasking in comparison to Heavy/Light Media Multitasking. Following recommendations of current reviews of the media multitasking research, I employ the Media Multitasking Index to categorize individuals into Intermediate Media Multitaskers, Heavy Media Multitaskers, and Light Media Multitaskers, and to try to address certain gaps in the literature. Examining cognitive control through the lenses of cognitive flexibility, working memory, and inhibitory control, we  aim to elucidate the relationship between Media Multitasking and focused attention. Anticipating an inverse -U- correlation, our study employs a novel approach, integrating Media Multitasking Index scores with an experiment measuring focused attention during media consumption. The findings hold implications for understanding how distinct patterns of media use may influence cognitive control and, by extension, individuals' ability to navigate complex tasks amid increasing media saturation.
+  
+keywords          : "keywords"
+wordcount         : "X"
+
+bibliography      : "thesis_zotero.bib"
+
+floatsintext      : no
+linenumbers       : yes
+draft             : no
+mask              : no
+
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+
+classoption       : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r setup, include = FALSE}
+library("papaja")
+r_refs("r-references.bib")
+```
+
+```{r analysis-preferences}
+# Seed for random number generation
+set.seed(42)
+knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
+```
+
+# Methods
+
+We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
+
+## Participants
+
+## Material
+
+## Procedure
+
+## Data analysis
+
+We used `r cite_r("r-references.bib")` for all our analyses.
+
+# Results
+
+# Discussion
+
+\newpage
+
+# References
+
+::: {#refs custom-style="Bibliography"}
+:::

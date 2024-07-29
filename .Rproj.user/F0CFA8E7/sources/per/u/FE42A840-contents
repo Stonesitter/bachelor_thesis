@@ -17,3 +17,6 @@ summary(model2)
 summary(poly_model)
 
 
+tinytex::install_tinytex()  # Install TinyTeX
+update.packages(ask = FALSE, checkBuilt = TRUE)
+tinytex::tlmgr_update()
