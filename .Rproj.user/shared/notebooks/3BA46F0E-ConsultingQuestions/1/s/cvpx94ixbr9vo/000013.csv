@@ -1,0 +1,4 @@
+"0",""
+"0","x <- nrow(outliers_data)"
+"0","text <- paste(x, "" entfernte Werte"")"
+"0","mtext(text, side = 1, line = 1, cex = 1)"

@@ -1,0 +1,8 @@
+"0",""
+"0",""
+"0","# Setzen des Layouts für 1 Zeile und 3 Spalten"
+"0","layout(matrix(1:2, nrow = 1))"
+"0",""
+"0",""
+"0","# Histogramm für Total Correct"
+"0","hist(merged_data$total_correct, main = ""Total Correct"", xlab = ""Total Correct"", col = ""lightblue"")"

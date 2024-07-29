@@ -1,0 +1,5 @@
+"0",""
+"0","layout(matrix(1:2, nrow = 1))"
+"0",""
+"0","# Histogramm für Age"
+"0","hist(merged_data$Age, main = ""Age"", xlab = ""Age"", col = ""lightgrey"")"

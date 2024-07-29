@@ -1,0 +1,3 @@
+"0",""
+"0","# Legende hinzufügen"
+"0","legend(""topright"", legend=c(""Bereinigte Daten"", ""Ausreißer""), col=c(""blue"", ""red""), pch=19)"

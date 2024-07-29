@@ -1,0 +1,6 @@
+"0","# Polynomialregression"
+"0","model_poly <- lm(total_correct ~ poly(MMM_S_Index, 2), data = merged_data)"
+"0","# summary(model_poly)"
+"0",""
+"0","# Plotten der Regression"
+"0","plot(merged_data$MMM_S_Index, merged_data$total_correct, pch = 16, xlab = ""MMM_S_Index"", ylab = ""Total Correct"", main = ""Polynomial Regression"")"

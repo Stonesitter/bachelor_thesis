@@ -1,0 +1,5 @@
+"0",""
+"0","par(mar = c(2, 2, 2, 2)) # Setzt die inneren Margen (unten, links, oben, rechts)"
+"0","par(oma = c(1, 1, 0, 1)) # Setzt die äußeren Margen (unten, links, oben, rechts)"
+"0",""
+"0","boxplot(merged_data$total_correct, main = ""Total Correct"", ylab = ""Total Correct"", col = ""lightblue"")"

@@ -1,0 +1,4 @@
+"0","### visueller Vergleich"
+"0","# Scatterplot der bereinigten Daten"
+"0","plot(merged_data$MMM_S_Index, merged_data$total_correct, main=""Scatterplot von bereinigten Daten und Ausreißern"", "
+"0","     xlab=""MMM_S_Index"", ylab=""Total Correct"", col=""blue"", pch=19)"

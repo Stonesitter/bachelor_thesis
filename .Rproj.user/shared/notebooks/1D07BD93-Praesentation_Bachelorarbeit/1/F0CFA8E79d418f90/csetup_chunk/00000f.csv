@@ -1,0 +1,5 @@
+"0","# Setzen des Arbeitsverzeichnisses"
+"0","knitr::opts_knit$set(root.dir = ""C:/Users/maalt/OneDrive - Universität Wien/Dokumente/Uni/Psychologie/8. Semester/Bachelorarbeit/Experimente/Results/Stichtag_09_07"")"
+"0",""
+"0","# r code verstecken und fehlermeldungen der packete ignorieren"
+"0","knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)"

@@ -1,0 +1,6 @@
+"0","model_robust <- rlm(total_correct ~ poly(MMM_S_Index, 2), data = merged_data)"
+"0",""
+"0","robust_summary <- tidy(model_robust)"
+"0",""
+"0",""
+"0","kable(robust_summary)"

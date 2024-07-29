@@ -1,0 +1,3 @@
+"0",""
+"0","# Hinzufügen der Ausreißer zum Scatterplot"
+"0","points(outliers_data$MMM_S_Index, outliers_data$total_correct, col=""red"", pch=19)"

@@ -1,0 +1,2 @@
+"0","plot(data_filtered$MMM_S_Index, data_filtered$total_correct, main=""Scatterplot bereinigter Daten"", "
+"0","     xlab=""MMM_S_Index"", ylab=""Total Correct"", col=""blue"", pch=19)"

@@ -1,0 +1,4 @@
+"0","model_poly_reduced_summary <- tidy(model_poly_reduced)"
+"0",""
+"0",""
+"0","kable(model_poly_reduced_summary)"

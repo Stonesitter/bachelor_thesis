@@ -1,0 +1,208 @@
+# rm(list = ls())
+
+# Merge the data frames based on jatosStudyResultId
+# merged_data <- merge(survey_result, exp_result, by = "jatosStudyResultId")
+
+# Set path
+ path <- "/Users/maalt/OneDrive - Universität Wien/Dokumente/Uni/Psychologie/8. Semester/Bachelorarbeit/Experimente/Results/Stichtag_09_07"
+ setwd(path)
+merged_data <- read.csv("merged_data_0907.csv")
+
+# Display the merged data frame
+print(merged_data)
+
+
+
+
+# Speichern als CSV-Datei im angegebenen Verzeichnis
+
+# write.csv(merged_data, file = paste0(path, "/merged_data_0907.csv"), row.names = FALSE)
+
+
+
+
+
+#### DESKRIPTIVE STATISTIK
+
+summary(merged_data)
+
+# Korrelation berechnen
+cor_total_correct_mmm <- cor(merged_data$total_correct, merged_data$MMM_S_Index)
+print(cor_total_correct_mmm)
+
+
+
+# Histogramme
+hist(merged_data$total_correct, main = "Distribution of Total Correct", xlab = "Total Correct")
+hist(merged_data$MMM_S_Index, main = "Distribution of MMM_S_Index", xlab = "MMM_S_Index")
+hist(merged_data$Age, main = "Distribution of Age", xlab = "Age")
+
+
+
+
+
+# Boxplots
+boxplot(merged_data$total_correct, main = "Boxplot of Total Correct", ylab = "Total Correct")
+boxplot(merged_data$MMM_S_Index, main = "Boxplot of MMM_S_Index", ylab = "MMM_S_Index")
+boxplot(merged_data$Age, main = "Boxplot of Age", ylab = "Age")
+
+## Boxplot Duration
+
+# Funktion, um HH:MM:SS in Sekunden umzuwandeln
+convert_to_seconds <- function(time_str) {
+  parts <- strsplit(time_str, ":")[[1]]
+  as.numeric(parts[1]) * 3600 + as.numeric(parts[2]) * 60 + as.numeric(parts[3])
+}
+
+# Anwendung der Funktion auf die duration-Spalte
+duration_seconds <- sapply(merged_data$Duration, convert_to_seconds)
+
+# Boxplot Duration erstellen
+boxplot(duration_seconds, main="Boxplot of Duration", ylab="Seconds")
+
+# Füge seconds zur merged_data hinzu
+merged_data$duration_seconds <- duration_seconds
+
+
+
+
+#### ANALYSE
+
+
+# Polynomialregression
+model_poly <- lm(total_correct ~ poly(MMM_S_Index, 2), data = merged_data)
+summary(model_poly)
+
+# Plotten der Regression
+plot(merged_data$MMM_S_Index, merged_data$total_correct, pch = 16, xlab = "MMM_S_Index", ylab = "Total Correct", main = "Polynomial Regression")
+curve(predict(model_poly, newdata = data.frame(MMM_S_Index = x)), add = TRUE, col = "blue")
+
+library(ggplot2)
+
+# Scatterplot der Daten
+ggplot(merged_data, aes(x = MMM_S_Index, y = total_correct)) +
+  geom_point() +
+  stat_smooth(method = "lm", formula = y ~ poly(x, 2), se = FALSE, color = "blue") +
+  ggtitle("Polynomiale Regression: Inverse U-Korrelation") +
+  xlab("Media Multitasking Index (MMM-S)") +
+  ylab("Kognitive Kontrolle")
+
+
+
+
+
+#### Nach Initial Summary
+
+
+
+# Erweiterte Regression
+model_extended <- lm(total_correct ~ poly(MMM_S_Index, 2) + Age + Gender + duration_seconds, data = merged_data)
+summary(model_extended)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Residuenplots
+par(mfrow = c(2, 2))
+plot(model_poly)
+
+# QQ-Plot der Residuen
+qqnorm(residuals(model_poly))
+qqline(residuals(model_poly))
+
+# Einfaches lineares Modell
+model_simple <- lm(lm(total_correct ~ MMM_S_Index, data = merged_data))
+summary(model_simple)
+
+# Vergleich der Modelle
+anova(model_simple, model_poly)
+
+
+# Breusch-Pagan-Test für Homoskedastizität
+
+library(lmtest)
+bptest(model_poly)
+
+# Shapiro-Wilk-Test für Normalverteilung der Residuen
+shapiro.test(residuals(model_poly))
+
+
+# Einflussdiagnostik (car package)
+library(car)
+influencePlot(model_poly)
+
+
+
+
+
+
+
+
+
+#### STICHPROBEN BERECHNUNG FÜR POLYNOMIYLE REGRESSION
+
+
+# Paket laden
+library(pwr)
+
+
+# Berechnung der Stichprobengröße
+pwr.f2.test(u = 2, # Anzahl der Prädiktoren (z.B. lineare und quadratische Terme)
+                      f2 = 0.15, 
+                      sig.level = 0.05, 
+                      power = 0.80)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,4 @@
+"0","par(mar = c(2, 2, 2, 2)) # Setzt die inneren Margen (unten, links, oben, rechts)"
+"0","par(oma = c(0, 1, 0, 1)) # Setzt die äußeren Margen (unten, links, oben, rechts)"
+"0",""
+"0","boxplot(clean_data$total_correct, main = ""Boxplot of Clean Total Correct"", ylab =""Total Correct"", col = ""lightblue"")"

@@ -1,0 +1,6 @@
+"0","model_gam <- gam(total_correct ~ s(MMM_S_Index), data = merged_data)"
+"0",""
+"0","gam_summary <- tidy(model_gam)"
+"0",""
+"0",""
+"0","kable(gam_summary)"

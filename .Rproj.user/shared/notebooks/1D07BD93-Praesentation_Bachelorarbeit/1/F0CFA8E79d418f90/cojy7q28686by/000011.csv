@@ -1,0 +1,1 @@
+"0","curve(predict(model_poly, newdata = data.frame(MMM_S_Index = x)), add = TRUE, col = ""blue"")"

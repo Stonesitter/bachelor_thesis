@@ -1,0 +1,3 @@
+"0",""
+"0","# Histogramm für MMM_S_Index"
+"0","hist(merged_data$MMM_S_Index, main = ""MMM_S_Index"", xlab = ""MMM_S_Index"", col = ""lightgreen"")"

@@ -1,0 +1,4 @@
+"0","### erzeugen von model_poly"
+"0","model_poly <- lm(total_correct ~ poly(MMM_S_Index, 2), data = merged_data)"
+"0",""
+"0",""

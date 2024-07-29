@@ -1,0 +1,3 @@
+"0",""
+"0","stud_res <- rstudent(model_poly)"
+"0","plot(stud_res, type = ""h"")"

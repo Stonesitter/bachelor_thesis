@@ -1,0 +1,8 @@
+"0","# Polynomialregression"
+"0","model_poly <- lm(total_correct ~ poly(MMM_S_Index, 2), data = merged_data)"
+"0",""
+"0","# Summary"
+"0","model_summary <- tidy(model_poly)"
+"0",""
+"0",""
+"0","kable(model_summary)"
