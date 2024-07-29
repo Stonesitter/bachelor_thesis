@@ -1,0 +1,19 @@
+
+
+model2 <- lm(total_correct_log ~ MMM_S_Index, data = merged_data)
+model <- lm(total_correct ~ MMM_S_Index, data = merged_data)
+summary(model)
+par(mfrow = c(2,2))
+
+    
+plot(model)
+plot(model2)
+
+plot(model_poly)
+
+
+summary(model)
+summary(model2)
+summary(poly_model)
+
+
