@@ -20,3 +20,7 @@ summary(poly_model)
 tinytex::install_tinytex()  # Install TinyTeX
 update.packages(ask = FALSE, checkBuilt = TRUE)
 tinytex::tlmgr_update()
+
+system.file("rmarkdown", "templates", "apa6", "resources", "apa6.tex", package = "papaja")
+install.packages("citr")
+library(citr)

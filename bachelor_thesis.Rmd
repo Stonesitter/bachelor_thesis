@@ -1,38 +1,26 @@
 ---
-title             : "Media Multitasking and Cognitive Control: Unveiling Patterns in Focused Attention"
-shorttitle        : "Title"
+title             : "Media Multitasking and Cognitive Flexibility: An Investigation of a Non-linear Correlation"
+shorttitle        : "Media Multitasking and Cognitive Flexibility"
 
 author: 
-  - name          : "Manuel Althaler"
-    affiliation   : "1"
-    corresponding : yes    # Define only one corresponding author
+  - name          : "Manuel Althaler 12032737"
+    affiliation   : ""
+    corresponding : no    # Define only one corresponding author
     address       : "Postal address"
-    email         : "my@email.com"
-    role: # Contributorship roles (e.g., CRediT, https://credit.niso.org/)
-      - "Conceptualization"
-      - "Writing - Original Draft Preparation"
-      - "Writing - Review & Editing"
+    email         : "a12032737@univie.unet.ac.at"
+    
 affiliation:
-  - id            : "1"
-    institution   : "University of Vienna"
-  - id            : "2"
-    institution   : "Konstanz Business School"
+  - id            : ""
+    institution   : "Faculty of Psychology, University of Vienna, 200233 SE Bachelorarbeit (2024S), Bence Szaszkó BSc MA MSc"
 
-authornote: |
-  Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
-
-  Enter author note here.
-
-abstract: |
-This study explores  the impact of Media Multitasking on cognitive control, specifically focused attention, within the context of Intermediate Media Multitasking in comparison to Heavy/Light Media Multitasking. Following recommendations of current reviews of the media multitasking research, I employ the Media Multitasking Index to categorize individuals into Intermediate Media Multitaskers, Heavy Media Multitaskers, and Light Media Multitaskers, and to try to address certain gaps in the literature. Examining cognitive control through the lenses of cognitive flexibility, working memory, and inhibitory control, we  aim to elucidate the relationship between Media Multitasking and focused attention. Anticipating an inverse -U- correlation, our study employs a novel approach, integrating Media Multitasking Index scores with an experiment measuring focused attention during media consumption. The findings hold implications for understanding how distinct patterns of media use may influence cognitive control and, by extension, individuals' ability to navigate complex tasks amid increasing media saturation.
+abstract: Research on media multitasking is troubled by ambiguous results, often comparing extreme groups of media multitasking behavior. This study investigated a potential non-linear correlation by using all data from the short media multitasking measure and the Modified Card Sorting Test to gain a comprehensive understanding of the relationship. Anticipating an inverse U-shaped correlation, the study employed a novel approach by using polynomial regression. A total of 161 participants were tested online via survey exchange sites. By comprehensively exploring the impact of media multitasking on cognitive flexibility, this study aimed to address various conflicting aspects of the current literature. However, no significant relationships were found, and underlying limitations were discussed to guide future research in this area.
   
-keywords          : "keywords"
-wordcount         : "X"
+keywords          : "media-multitasking, cognitive flexibility, polynomial regression, MMM-S, Modified Card Sorting Test"
 
 bibliography      : "thesis_zotero.bib"
 
 floatsintext      : no
-linenumbers       : yes
+linenumbers       : no
 draft             : no
 mask              : no
 
@@ -41,6 +29,22 @@ tablelist         : no
 footnotelist      : no
 
 classoption       : "man"
+header-includes:
+  - |
+    \makeatletter
+    \renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+      {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+      {-1em}%
+      {\normalfont\normalsize\bfseries\typesectitle}}
+    
+    \renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
+      {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+      {-\z@\relax}%
+      {\normalfont\normalsize\bfseries\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+    \makeatother
+
+csl               : "`r system.file('rmd', 'apa7.csl', package = 'papaja')`"
+documentclass     : "apa7"
 output            : papaja::apa6_pdf
 ---
 
@@ -54,6 +58,8 @@ r_refs("r-references.bib")
 set.seed(42)
 knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```
+
+With the increased use of media technology and media multitasking (MM), there is a growing interest in the influence on our cognitions and behaviors . One of the first studies that researched MM as a trait was conducted by Ophir and colleagues (2009). In their paper, MM was defined as the simultaneous consumption of different streams of content through different forms of media. The present work examines media multitasking as defined by the Media Multitasking Index, a questionnaire devised by Ophir and colleagues in the course of their work. This questionnaire categorizes individuals into Heavy (HMM), Light (LMM), and Intermediate Media Multitasking Users (IMM) based on standard deviations from the mean of the current sample, an approach that has been maintained to this day Further explanations of the MMI will be provided in the methods section. A review of the effects of media multitasking on youth by Van der Schuur and colleagues (2015) found that MM was primarily investigated regarding three different aspects: cognitive control abilities, academic performance, and socioemotional function. In their review, the authors formulated two opposing hypotheses regarding the effects of MM on cognitive control: the scattered attention hypothesis and the trained attention hypothesis. The arguments supporting each one can be traced back to the discussion presented by Ophir and colleagues (2009). According to the scattered attention hypothesis, regular media multitasking leads to not only a “breadth-bias” toward media consumption but also a breadth-bias in cognitive control, which makes them susceptible to distractors. Conversely, the trained attention hypothesis argues that the ability to switch between tasks and focus on relevant stimuli can be developed through training. Since then, there has been evidence for either the scattered attention hypotheses (Kong et al., 2009; Ophir et al., 2009; Uncapher & Wagner, 2018; Van Der Schuur et al., 2015; Yap & Lim, 2013) or the trained attention hypothesis (Alzahabi & Becker, 2013; Ophir et al., 2009; Van Der Schuur et al., 2015). However, not all studies have found significant relationships; for instance, Edwards and Shin (2017) and Seddon et al. (2018) reported no significant effects of media multitasking on cognitive control.
 
 # Methods
 
