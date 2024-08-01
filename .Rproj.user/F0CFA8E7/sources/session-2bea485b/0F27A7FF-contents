@@ -1,0 +1,25 @@
+---
+title: "appendix_thesis"
+author: "Manuel Althaler"
+date: "2024-08-01"
+output: html_document
+---
+# 
+
+```{r}
+par(cex = 1.2)
+
+
+# Create a combined data frame
+df <- data.frame(
+  Group = c("LMMs", "IMMs", "HMMs"),
+  `Standard Deviation Method` = as.numeric(analysis_data$table_sd),
+  `Quantile Method` = as.numeric(analysis_data$table_quantile)
+)
+
+apa_table(
+  df
+  , caption = "Distribution of Participants Across Groups"
+  , escape = TRUE
+)
+```

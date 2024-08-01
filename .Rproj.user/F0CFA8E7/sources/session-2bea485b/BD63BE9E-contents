@@ -1,0 +1,3 @@
+path <- "/Users/maalt/ONEDRI~1/Dokumente/Uni/Psychologie/8. Semester/Bachelorarbeit/bachelor_thesis/Experimente/Results/Stichtag_09_07"
+setwd(path)
+merged_filtered <- read.csv("merged_data_0907.csv")

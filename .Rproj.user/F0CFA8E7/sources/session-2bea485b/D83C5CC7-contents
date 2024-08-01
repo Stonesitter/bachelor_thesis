@@ -14,6 +14,7 @@ upper_bound <- Q3 + 1.5 * IQR
 # Filter the data to remove outliers
 merged_filtered <- merged_data[merged_data$p_error >= lower_bound &
                                  merged_data$p_error <= upper_bound, ]
+nrow(merged_filtered)
 # is justified since 3 * k doesn't include the 0 p_errors
 
 hist(merged_filtered$p_error)
@@ -99,3 +100,40 @@ summary(model2)
 par(mfrow = c(2, 2))
 plot(model)
 plot(model2)
+
+# how many participants are in each group?
+
+mean_val <- mean(merged_filtered$MMM_S_Index, na.rm = TRUE)
+sd_val <- sd(merged_filtered$MMM_S_Index, na.rm = TRUE)
+  
+group_sd <- cut(merged_filtered$MMM_S_Index,
+                                breaks = c(-Inf, mean_val - sd_val, mean_val + sd_val, Inf),
+                                labels = c("LMMs", "IMMs", "HMMs"))
+
+
+
+
+quantiles <- quantile(merged_filtered$MMM_S_Index, probs = c(0, 1/3, 2/3, 1), na.rm = TRUE)
+
+  
+
+group_quantile <- cut(merged_filtered$MMM_S_Index,
+                                      breaks = quantiles,
+                                      labels = c("LMMs", "IMMs", "HMMs"),
+                                      include.lowest = TRUE)
+table(group_sd)
+table(group_quantile)
+
+nrow(merged_filtered)
+nrow(merged_data)
+
+summary(merged_filtered$Age)
+summary(merged_filtered$Gender)
+table(merged_filtered$Gender)
+
+nfemale <- nrow(merged_filtered[merged_filtered$Gender == "female", ])
+m_age <- round(mean(merged_filtered$Age), 2)
+sd_age <- round(sd(merged_filtered$Age), 2)
+
+info <- paste0("(M = ", m_age, ", SD = ", sd_age, ", ", nfemale, " females)")
+nrow(merged_filtered)

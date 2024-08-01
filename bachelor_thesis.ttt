@@ -1,0 +1,18 @@
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\caption{\label{tab:unnamed-chunk-2}Distribution of Participants Across Groups}
+\centering
+\begin{tabular}[t]{>{}l|r|r}
+\hline
+Group & Standard.Deviation.Method & Quantile.Method\\
+\hline
+\textbf{LMMs} & 30 & 50\\
+\hline
+\textbf{IMMs} & 98 & 54\\
+\hline
+\textbf{HMMs} & 21 & 45\\
+\hline
+\end{tabular}
+\end{table*}

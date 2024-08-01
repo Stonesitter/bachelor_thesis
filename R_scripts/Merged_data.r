@@ -4,8 +4,10 @@
 # merged_data <- merge(survey_result, exp_result, by = "jatosStudyResultId")
 
 # Set path
- path <- "/Users/maalt/ONEDRI~1/Dokumente/Uni/Psychologie/8. Semester/Bachelorarbeit/bachelor_thesis/Experimente/Results/Stichtag_09_07"
+ path <- "C:/Users/maalt/ONEDRI~1/Dokumente/Uni/Psychologie/8. Semester/Bachelorarbeit/bachelor_thesis/Experimente/Results/Stichtag_09_07"
  setwd(path)
+ getwd()
+ dir()
 merged_data <- read.csv("merged_data_0907.csv")
 
 # Display the merged data frame
@@ -17,7 +19,7 @@ print(merged_data)
 # Speichern als CSV-Datei im angegebenen Verzeichnis
 
 # write.csv(merged_data, file = paste0(path, "/merged_data_0907.csv"), row.names = FALSE)
-
+# write.csv(merged_filtered, file = "merged_filtered_0907.csv", row.names = FALSE)
 
 
 

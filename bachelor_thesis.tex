@@ -212,7 +212,7 @@
 \affiliation{\vspace{0.5cm}\textsuperscript{} Faculty of Psychology, University of Vienna, 200233 SE Bachelorarbeit (2024S), Bence Szaszkó BSc MA MSc}
 
 \abstract{%
-Research on media multitasking is troubled by ambiguous results, often comparing extreme groups of media multitasking behavior. This study investigated a potential non-linear correlation by using all data from the short media multitasking measure and the Modified Card Sorting Test to gain a comprehensive understanding of the relationship. Anticipating an inverse U-shaped correlation, the study employed a novel approach by using polynomial regression. A total of 161 participants were tested online via survey exchange sites. By comprehensively exploring the impact of media multitasking on cognitive flexibility, this study aimed to address various conflicting aspects of the current literature. However, no significant relationships were found, and underlying limitations were discussed to guide future research in this area.
+Research on media multitasking is troubled by ambiguous results, often comparing extreme groups of media multitasking behavior. This study investigated a potential non-linear correlation by using all data from the short media multitasking measure and the Modified Card Sorting Test to gain a comprehensive understanding of the relationship. Anticipating an inverse U-shaped correlation, the study employed a novel approach by using polynomial regression. A total of 149 participants were tested online via survey exchange sites. By comprehensively exploring the impact of media multitasking on cognitive flexibility, this study aimed to address various conflicting aspects of the current literature. However, no significant relationships were found, and underlying limitations were discussed to guide future research in this area.
 }
 
 
@@ -224,9 +224,7 @@ With the increased use of media technology and media multitasking (MM), there is
 
 \subsection{Media Multitasking and Cognitive Control}\label{media-multitasking-and-cognitive-control}
 
-\begin{verbatim}
-Cognitive control is separated into three different aspects: cognitive flexibility, working memory, and inhibitory control [@davidsonDevelopmentCognitiveControl2006]. Working memory is the ability to temporarily hold and manipulate information necessary for cognitive tasks, allowing individuals to process and use relevant information [@baddeleyDevelopmentsConceptWorking1994]. Cognitive flexibility is the competence to adapt and switch between different cognitive processes or tasks. Inhibitory control is the ability to suppress or override automatic responses, impulses, or distractions, allowing individuals to focus on relevant information and make intentional, goal-directed decisions [@diamondExecutiveFunctions2013]. Every aspect has its unique relationship with MM [@uncapherMindsBrainsMedia2018]. A recent meta-analysis by @kongCognitiveControlAdolescents2023, which examined the effect of MM on cognitive control while considering the different subsets as moderators, found a significant negative impact. The authors also found a significant moderating effect of type for working memory and inhibitory control, while being non-significant for cognitive flexibility. Other reviews, however, did not come to the same decisive conclusions [@kobayashiRelationshipMediaMultitasking2020; @uncapherMindsBrainsMedia2018]. While the research regarding cognitive flexibility argues for a non-significant relationship, there are considerations that these findings may result from comparing extreme groups. For example, some research found that IMMs performed better than HMMs on tests of focused attention, suggesting a possible inverse U-shaped correlation between MM and components of cognitive control [@cardoso-leiteTechnologyConsumptionCognitive2016; @shinModerateAmountsMedia2020]. @shinModerateAmountsMedia2020 demonstrated that IMMs outperformed both HMMs and LLMs on a more challenging variant of the n-back task, as opposed to the easier versions. Additionally, HMMs did not score significantly differently from LMMs, which aligns with the inverse U-shape hypothesis. To better understand the subtle differences influencing the effects of MM on cognitive flexibility, it is important to examine the full spectrum of MM behavior. Thus, this study explores the shape of the relationship between media multitasking and cognitive flexibility without excluding data based on MM index scores. This study postulates a non-linear correlation between MM and cognitive flexibility, and further, it postulates that the non-linear relationship follows an inverse u-shape.
-\end{verbatim}
+Cognitive control is separated into three different aspects: cognitive flexibility, working memory, and inhibitory control (Davidson et al., 2006). Working memory is the ability to temporarily hold and manipulate information necessary for cognitive tasks, allowing individuals to process and use relevant information (Baddeley \& Hitch, 1994). Cognitive flexibility is the competence to adapt and switch between different cognitive processes or tasks. Inhibitory control is the ability to suppress or override automatic responses, impulses, or distractions, allowing individuals to focus on relevant information and make intentional, goal-directed decisions (Diamond, 2013). Every aspect has its unique relationship with MM (Uncapher \& Wagner, 2018). A recent meta-analysis by Kong et al. (2023), which examined the effect of MM on cognitive control while considering the different subsets as moderators, found a significant negative impact. The authors also found a significant moderating effect of type for working memory and inhibitory control, while being non-significant for cognitive flexibility. Other reviews, however, did not come to the same decisive conclusions (Kobayashi et al., 2020; Uncapher \& Wagner, 2018). While the research regarding cognitive flexibility argues for a non-significant relationship, there are considerations that these findings may result from comparing extreme groups. For example, some research found that IMMs performed better than HMMs on tests of focused attention, suggesting a possible inverse U-shaped correlation between MM and components of cognitive control (Cardoso-Leite et al., 2016; Shin et al., 2020). Shin et al. (2020) demonstrated that IMMs outperformed both HMMs and LLMs on a more challenging variant of the n-back task, as opposed to the easier versions. Additionally, HMMs did not score significantly differently from LMMs, which aligns with the inverse U-shape hypothesis. To better understand the subtle differences influencing the effects of MM on cognitive flexibility, it is important to examine the full spectrum of MM behavior. Thus, this study explores the shape of the relationship between media multitasking and cognitive flexibility without excluding data based on MM index scores. This study postulates a non-linear correlation between MM and cognitive flexibility, and further, it postulates that the non-linear relationship follows an inverse u-shape.
 
 \section{Methods}\label{methods}
 
@@ -234,13 +232,16 @@ We report how we determined our sample size, all data exclusions (if any), all m
 
 \subsection{Participants}\label{participants}
 
+Participants were primarily recruited through two survey-exchange platforms: surveycircle.com and surveyswap.io. On these platforms, participants complete surveys to earn credit points, which they can then use to gather participants for their own studies. Additionally, some participants were recruited via convenience sampling through WhatsApp and by colleagues who asked their study participants to also participate in this study. The majority of participants were recruited through the survey-exchange platforms. You can find the distribution of participants based on the usual categorization methods of MM behavior in Table A1.
+Data were collected through direct observation using survey and experiment data. A total of 149 participants aged 18 - 67(M = 26.34, SD = 6.55, 93 females) were included in the study. Initially, 161 participants were recruited, but 12 were excluded due to being outliers based on the 1.5 * IQR criterion of the dependent variable the percentage of the perseverative errors of the modified card sorting test (see Material section). These outliers suggested non-conformity with the instructions, such as misunderstandings or non-compliance. The sample predominantly consisted of individuals presumed to be students, given the recruitment methods (student WhatsApp groups, colleagues' experiments involving psychology students, and survey-exchange platforms typically used by other students).
+
 \subsection{Material}\label{material}
 
 \subsection{Procedure}\label{procedure}
 
 \subsection{Data analysis}\label{data-analysis}
 
-We used R (Version 4.4.1; R Core Team, 2024) and the R-packages \emph{papaja} (Version 0.1.2.9000; Aust \& Barth, 2023), and \emph{tinylabels} (Version 0.2.4; Barth, 2023) for all our analyses.
+We used R (Version 4.4.1; R Core Team, 2024) and the R-packages \emph{dplyr} (Version 1.1.4; \textbf{R-dplyr?}), \emph{e1071} (Version 1.7.14; \textbf{R-e1071?}), \emph{ggplot2} (Version 3.5.1; \textbf{R-ggplot2?}), \emph{kableExtra} (Version 1.4.0; \textbf{R-kableExtra?}), \emph{knitr} (Version 1.48; \textbf{R-knitr?}), \emph{MASS} (Version 7.3.61; \textbf{R-MASS?}), \emph{papaja} (Version 0.1.2.9000; Aust \& Barth, 2023), \emph{shiny} (Version 1.9.0; \textbf{R-shiny?}), and \emph{tinylabels} (Version 0.2.4; Barth, 2023) for all our analyses.
 
 \section{Results}\label{results}
 
@@ -258,14 +259,29 @@ Alzahabi, R., \& Becker, M. W. (2013). The association between media multitaskin
 \bibitem[\citeproctext]{ref-R-papaja}
 Aust, F., \& Barth, M. (2023). \emph{{papaja}: {Prepare} reproducible {APA} journal articles with {R Markdown}} {[}Manual{]}.
 
+\bibitem[\citeproctext]{ref-baddeleyDevelopmentsConceptWorking1994}
+Baddeley, A. D., \& Hitch, G. J. (1994). Developments in the concept of working memory. \emph{Neuropsychology}, \emph{8}(4), 485--493. \url{https://doi.org/10.1037/0894-4105.8.4.485}
+
 \bibitem[\citeproctext]{ref-R-tinylabels}
 Barth, M. (2023). \emph{{tinylabels}: {Lightweight} variable labels} {[}Manual{]}.
+
+\bibitem[\citeproctext]{ref-cardoso-leiteTechnologyConsumptionCognitive2016}
+Cardoso-Leite, P., Kludt, R., Vignola, G., Ma, W. J., Green, C. S., \& Bavelier, D. (2016). Technology consumption and cognitive control: {Contrasting} action video game experience with media multitasking. \emph{Attention, Perception, \& Psychophysics}, \emph{78}(1), 218--241. \url{https://doi.org/10.3758/s13414-015-0988-0}
 
 \bibitem[\citeproctext]{ref-carrierMultitaskingGenerationsMultitasking2009}
 Carrier, L. M., Cheever, N. A., Rosen, L. D., Benitez, S., \& Chang, J. (2009). Multitasking across generations: {Multitasking} choices and difficulty ratings in three generations of {Americans}. \emph{Computers in Human Behavior}, \emph{25}(2), 483--489. \url{https://doi.org/10.1016/j.chb.2008.10.012}
 
+\bibitem[\citeproctext]{ref-davidsonDevelopmentCognitiveControl2006}
+Davidson, M. C., Amso, D., Anderson, L. C., \& Diamond, A. (2006). Development of cognitive control and executive functions from 4 to 13 years: {Evidence} from manipulations of memory, inhibition, and task switching. \emph{Neuropsychologia}, \emph{44}(11), 2037--2078. \url{https://doi.org/10.1016/j.neuropsychologia.2006.02.006}
+
+\bibitem[\citeproctext]{ref-diamondExecutiveFunctions2013}
+Diamond, A. (2013). Executive {Functions}. \emph{Annual Review of Psychology}, \emph{64}(1), 135--168. \url{https://doi.org/10.1146/annurev-psych-113011-143750}
+
 \bibitem[\citeproctext]{ref-edwardsMediaMultitaskingImplicit2017}
 Edwards, K. S., \& Shin, M. (2017). Media multitasking and implicit learning. \emph{Attention, Perception, \& Psychophysics}, \emph{79}(5), 1535--1549. \url{https://doi.org/10.3758/s13414-017-1319-4}
+
+\bibitem[\citeproctext]{ref-kobayashiRelationshipMediaMultitasking2020}
+Kobayashi, K., Oishi, N., Yoshimura, S., Ueno, T., Miyagi, T., Murai, T., \& Fujiwara, H. (2020). Relationship between media multitasking and functional connectivity in the dorsal attention network. \emph{Scientific Reports}, \emph{10}(1), 17992. \url{https://doi.org/10.1038/s41598-020-75091-9}
 
 \bibitem[\citeproctext]{ref-kongCognitiveControlAdolescents2023}
 Kong, F., Meng, S., Deng, H., Wang, M., \& Sun, X. (2023). Cognitive {Control} in {Adolescents} and {Young Adults} with {Media Multitasking Experience}: A {Three-Level Meta-analysis}. \emph{Educational Psychology Review}, \emph{35}(1), 22. \url{https://doi.org/10.1007/s10648-023-09746-0}
@@ -279,6 +295,9 @@ R Core Team. (2024). \emph{R: A language and environment for statistical computi
 \bibitem[\citeproctext]{ref-seddonExploringRelationshipExecutive2018}
 Seddon, A. L., Law, A. S., Adams, A.-M., \& Simmons, F. R. (2018). Exploring the relationship between executive functions and self-reported media-multitasking in young adults. \emph{Journal of Cognitive Psychology}, \emph{30}(7), 728--742. \url{https://doi.org/10.1080/20445911.2018.1525387}
 
+\bibitem[\citeproctext]{ref-shinModerateAmountsMedia2020}
+Shin, M., Linke, A., \& Kemps, E. (2020). Moderate amounts of media multitasking are associated with optimal task performance and minimal mind wandering. \emph{Computers in Human Behavior}, \emph{111}, 106422. \url{https://doi.org/10.1016/j.chb.2020.106422}
+
 \bibitem[\citeproctext]{ref-uncapherMindsBrainsMedia2018}
 Uncapher, M. R., \& Wagner, A. D. (2018). Minds and brains of media multitaskers: {Current} findings and future directions. \emph{Proceedings of the National Academy of Sciences}, \emph{115}(40), 9889--9896. \url{https://doi.org/10.1073/pnas.1611612115}
 
@@ -289,6 +308,35 @@ Van Der Schuur, W. A., Baumgartner, S. E., Sumter, S. R., \& Valkenburg, P. M. (
 Yap, J. Y., \& Lim, S. W. H. (2013). Media multitasking predicts unitary versus splitting visual focal attention. \emph{Journal of Cognitive Psychology}, \emph{25}(7), 889--902. \url{https://doi.org/10.1080/20445911.2013.835315}
 
 \end{CSLReferences}
+
+\newpage
+
+\appendix
+
+
+\section{}\label{section}
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-7}Distribution of Participants Across Groups}
+
+\begin{tabular}{lll}
+\toprule
+Group & \multicolumn{1}{c}{Standard.Deviation.Method} & \multicolumn{1}{c}{Quantile.Method}\\
+\midrule
+LMMs & 30.00 & 50.00\\
+IMMs & 98.00 & 54.00\\
+HMMs & 21.00 & 45.00\\
+\bottomrule
+\end{tabular}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
 
 
 \end{document}

@@ -13,7 +13,7 @@ affiliation:
   - id            : ""
     institution   : "Faculty of Psychology, University of Vienna, 200233 SE Bachelorarbeit (2024S), Bence Szaszkó BSc MA MSc"
 
-abstract: Research on media multitasking is troubled by ambiguous results, often comparing extreme groups of media multitasking behavior. This study investigated a potential non-linear correlation by using all data from the short media multitasking measure and the Modified Card Sorting Test to gain a comprehensive understanding of the relationship. Anticipating an inverse U-shaped correlation, the study employed a novel approach by using polynomial regression. A total of 161 participants were tested online via survey exchange sites. By comprehensively exploring the impact of media multitasking on cognitive flexibility, this study aimed to address various conflicting aspects of the current literature. However, no significant relationships were found, and underlying limitations were discussed to guide future research in this area.
+abstract: Research on media multitasking is troubled by ambiguous results, often comparing extreme groups of media multitasking behavior. This study investigated a potential non-linear correlation by using all data from the short media multitasking measure and the Modified Card Sorting Test to gain a comprehensive understanding of the relationship. Anticipating an inverse U-shaped correlation, the study employed a novel approach by using polynomial regression. A total of 149 participants were tested online via survey exchange sites. By comprehensively exploring the impact of media multitasking on cognitive flexibility, this study aimed to address various conflicting aspects of the current literature. However, no significant relationships were found, and underlying limitations were discussed to guide future research in this area.
   
 keywords          : "media-multitasking, cognitive flexibility, polynomial regression, MMM-S, Modified Card Sorting Test"
 
@@ -42,7 +42,8 @@ header-includes:
       {-\z@\relax}%
       {\normalfont\normalsize\bfseries\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
     \makeatother
-
+    
+appendix: "appendix.Rmd"
 csl               : "`r system.file('rmd', 'apa7.csl', package = 'papaja')`"
 documentclass     : "apa7"
 output            : papaja::apa6_pdf
@@ -50,7 +51,11 @@ output            : papaja::apa6_pdf
 
 ```{r setup, include = FALSE}
 library("papaja")
+library(knitr)
+library(kableExtra)
+library(dplyr)
 r_refs("r-references.bib")
+my_citations <- cite_r(file = "r-references.bib")
 ```
 
 ```{r analysis-preferences}
@@ -59,17 +64,33 @@ set.seed(42)
 knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```
 
+```{r}
+path <- "C:/Users/maalt/ONEDRI~1/Dokumente/Uni/Psychologie/8. Semester/Bachelorarbeit/bachelor_thesis/Experimente/Results/Stichtag_09_07"
+
+merged_filtered <- read.csv(paste0(path, "/merged_filtered_0907.csv"))
+load(paste0(path, "/analysis_data.RData"))
+```
+
+
 With the increased use of media technology and media multitasking (MM), there is a growing interest in the influence on our cognitions and behaviors [@carrierMultitaskingGenerationsMultitasking2009]. One of the first studies that researched MM as a trait was conducted by @ophirCognitiveControlMedia2009. In their paper, MM was defined as the simultaneous consumption of different streams of content through different forms of media. The present work examines media multitasking as defined by the Media Multitasking Index, a questionnaire devised by Ophir and colleagues in the course of their work. This questionnaire categorizes individuals into Heavy (HMM), Light (LMM), and Intermediate Media Multitasking Users (IMM) based on standard deviations from the mean of the current sample. Future studies also used oter cut-off methods based on either quantiles or percentiles [@vanderschuurConsequencesMediaMultitasking2015]. Further explanations of the MMI will be provided in the methods section. A review of the effects of media multitasking on youth by @vanderschuurConsequencesMediaMultitasking2015 found that MM was primarily investigated regarding three different aspects: cognitive control abilities, academic performance, and socioemotional function. In their review, the authors formulated two opposing hypotheses regarding the effects of MM on cognitive control: the scattered attention hypothesis and the trained attention hypothesis. The arguments supporting each one can be traced back to the discussion presented by @ophirCognitiveControlMedia2009. According to the scattered attention hypothesis, regular media multitasking leads to not only a “breadth-bias” toward media consumption but also a breadth-bias in cognitive control, which makes them susceptible to distractors. Conversely, the trained attention hypothesis argues that the ability to switch between tasks and focus on relevant stimuli can be developed through training. Since then, there has been evidence for either the scattered attention hypotheses [@kongCognitiveControlAdolescents2023; @ophirCognitiveControlMedia2009; @uncapherMindsBrainsMedia2018; @vanderschuurConsequencesMediaMultitasking2015; @yapMediaMultitaskingPredicts2013] or the trained attention hypothesis [@alzahabiAssociationMediaMultitasking2013; @ophirCognitiveControlMedia2009; @vanderschuurConsequencesMediaMultitasking2015]. However, not all studies have found significant relationships; for instance, @edwardsMediaMultitaskingImplicit2017 and @seddonExploringRelationshipExecutive2018 reported no significant effects of media multitasking on cognitive control.
 
 ## Media Multitasking and Cognitive Control
-	Cognitive control is separated into three different aspects: cognitive flexibility, working memory, and inhibitory control [@davidsonDevelopmentCognitiveControl2006]. Working memory is the ability to temporarily hold and manipulate information necessary for cognitive tasks, allowing individuals to process and use relevant information [@baddeleyDevelopmentsConceptWorking1994]. Cognitive flexibility is the competence to adapt and switch between different cognitive processes or tasks. Inhibitory control is the ability to suppress or override automatic responses, impulses, or distractions, allowing individuals to focus on relevant information and make intentional, goal-directed decisions [@diamondExecutiveFunctions2013]. Every aspect has its unique relationship with MM [@uncapherMindsBrainsMedia2018]. A recent meta-analysis by @kongCognitiveControlAdolescents2023, which examined the effect of MM on cognitive control while considering the different subsets as moderators, found a significant negative impact. The authors also found a significant moderating effect of type for working memory and inhibitory control, while being non-significant for cognitive flexibility. Other reviews, however, did not come to the same decisive conclusions [@kobayashiRelationshipMediaMultitasking2020; @uncapherMindsBrainsMedia2018]. While the research regarding cognitive flexibility argues for a non-significant relationship, there are considerations that these findings may result from comparing extreme groups. For example, some research found that IMMs performed better than HMMs on tests of focused attention, suggesting a possible inverse U-shaped correlation between MM and components of cognitive control [@cardoso-leiteTechnologyConsumptionCognitive2016; @shinModerateAmountsMedia2020]. @shinModerateAmountsMedia2020 demonstrated that IMMs outperformed both HMMs and LLMs on a more challenging variant of the n-back task, as opposed to the easier versions. Additionally, HMMs did not score significantly differently from LMMs, which aligns with the inverse U-shape hypothesis. To better understand the subtle differences influencing the effects of MM on cognitive flexibility, it is important to examine the full spectrum of MM behavior. Thus, this study explores the shape of the relationship between media multitasking and cognitive flexibility without excluding data based on MM index scores. This study postulates a non-linear correlation between MM and cognitive flexibility, and further, it postulates that the non-linear relationship follows an inverse u-shape.
+
+Cognitive control is separated into three different aspects: cognitive flexibility, working memory, and inhibitory control [@davidsonDevelopmentCognitiveControl2006]. Working memory is the ability to temporarily hold and manipulate information necessary for cognitive tasks, allowing individuals to process and use relevant information [@baddeleyDevelopmentsConceptWorking1994]. Cognitive flexibility is the competence to adapt and switch between different cognitive processes or tasks. Inhibitory control is the ability to suppress or override automatic responses, impulses, or distractions, allowing individuals to focus on relevant information and make intentional, goal-directed decisions [@diamondExecutiveFunctions2013]. Every aspect has its unique relationship with MM [@uncapherMindsBrainsMedia2018]. A recent meta-analysis by @kongCognitiveControlAdolescents2023, which examined the effect of MM on cognitive control while considering the different subsets as moderators, found a significant negative impact. The authors also found a significant moderating effect of type for working memory and inhibitory control, while being non-significant for cognitive flexibility. Other reviews, however, did not come to the same decisive conclusions [@kobayashiRelationshipMediaMultitasking2020; @uncapherMindsBrainsMedia2018]. While the research regarding cognitive flexibility argues for a non-significant relationship, there are considerations that these findings may result from comparing extreme groups. For example, some research found that IMMs performed better than HMMs on tests of focused attention, suggesting a possible inverse U-shaped correlation between MM and components of cognitive control [@cardoso-leiteTechnologyConsumptionCognitive2016; @shinModerateAmountsMedia2020]. @shinModerateAmountsMedia2020 demonstrated that IMMs outperformed both HMMs and LLMs on a more challenging variant of the n-back task, as opposed to the easier versions. Additionally, HMMs did not score significantly differently from LMMs, which aligns with the inverse U-shape hypothesis. To better understand the subtle differences influencing the effects of MM on cognitive flexibility, it is important to examine the full spectrum of MM behavior. Thus, this study explores the shape of the relationship between media multitasking and cognitive flexibility without excluding data based on MM index scores. This study postulates a non-linear correlation between MM and cognitive flexibility, and further, it postulates that the non-linear relationship follows an inverse u-shape.
 
 
 # Methods
 
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
 
+
 ## Participants
+
+Participants were primarily recruited through two survey-exchange platforms: surveycircle.com and surveyswap.io. On these platforms, participants complete surveys to earn credit points, which they can then use to gather participants for their own studies. Additionally, some participants were recruited via convenience sampling through WhatsApp and by colleagues who asked their study participants to also participate in this study. The majority of participants were recruited through the survey-exchange platforms. You can find the distribution of participants based on the usual categorization methods of MM behavior in Table A1. 
+Data were collected through direct observation using survey and experiment data. A total of 149 participants aged `r analysis_data$min_age` - `r analysis_data$max_age`(M = `r analysis_data$m_age`, SD = `r analysis_data$sd_age`, `r analysis_data$nfemale` females) were included in the study. Initially, 161 participants were recruited, but 12 were excluded due to being outliers based on the 1.5 * IQR criterion of the dependent variable the percentage of the perseverative errors of the modified card sorting test (see Material section). These outliers suggested non-conformity with the instructions, such as misunderstandings or non-compliance. The sample predominantly consisted of individuals presumed to be students, given the recruitment methods (student WhatsApp groups, colleagues' experiments involving psychology students, and survey-exchange platforms typically used by other students). 
+
+
+
 
 ## Material
 
@@ -89,3 +110,12 @@ We used `r cite_r("r-references.bib")` for all our analyses.
 
 ::: {#refs custom-style="Bibliography"}
 :::
+
+
+\newpage
+
+# (APPENDIX) Appendix {-}
+
+```{r child = "appendix.Rmd"}
+```
+

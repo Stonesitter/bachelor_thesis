@@ -1,0 +1,5 @@
+"0","library(""papaja"")"
+"0","library(knitr)"
+"0","library(kableExtra)"
+"0","r_refs(""r-references.bib"")"
+"0","my_citations <- cite_r(file = ""r-references.bib"")"
