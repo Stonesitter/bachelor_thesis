@@ -14,6 +14,7 @@ upper_bound <- Q3 + 1.5 * IQR
 # Filter the data to remove outliers
 merged_filtered <- merged_data[merged_data$p_error >= lower_bound &
                                  merged_data$p_error <= upper_bound, ]
+# is justified since 3 * k doesn't include the 0 p_errors
 
 hist(merged_filtered$p_error)
 boxplot(merged_filtered$p_error)
@@ -34,6 +35,12 @@ skewness_value2 <- skewness(merged_filtered$boxcox_reflected_p_error)
 print(skewness_value)
 print(skewness_value2)
 
+
+kurtosis_value <- kurtosis(merged_filtered$p_error)
+kurtosis_value2 <- kurtosis(merged_filtered$boxcox_reflected_p_error)
+print(kurtosis_value)
+print(kurtosis_value2)
+
 ## Example Text in Results Section:
 # "In order to assess the distribution of the perseverative error data, skewness values were 
 # calculated for both the original and Box-Cox transformed variables. The skewness of the 
@@ -42,8 +49,18 @@ print(skewness_value2)
 # transformation, the skewness of the boxcox_p_error variable was 0.04, suggesting that the 
 # transformation successfully normalized the data, as the skewness value is close to zero."
 
+mean(merged_filtered$p_error)
+sd(merged_filtered$p_error)
+
+
+merged_filtered$p_correct <- (merged_filtered$total_correct /64) * 100
+
+mean(merged_filtered$p_correct)
+sd(merged_filtered$p_correct)
+
 
 # Reflect the variable
+
 max_value <- max(merged_filtered$p_error)
 reflected_p_error <- max_value + 1 - merged_filtered$p_error
 

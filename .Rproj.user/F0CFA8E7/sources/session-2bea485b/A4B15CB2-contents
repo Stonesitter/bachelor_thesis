@@ -1,0 +1,17 @@
+# Calculate the IQR
+Q1 <- quantile(merged_data$p_error, 0.25)
+Q3 <- quantile(merged_data$p_error, 0.75)
+IQR <- Q3 - Q1
+
+# Determine the lower and upper bounds for outliers
+lower_bound <- Q1 - 3 * IQR
+upper_bound <- Q3 + 3 * IQR
+
+# Filter the data to remove outliers
+test <- merged_data[merged_data$p_error >= lower_bound &
+                                 merged_data$p_error <= upper_bound, ]
+
+
+nrow(test)
+nrow(merged_filtered)
+nrow(merged_data)
