@@ -1,0 +1,32 @@
+# Install and load the pwr package
+install.packages("pwr")
+library(pwr)
+
+# Set the parameters
+effect_size <- 0.02  # Medium effect size
+alpha <- 0.05        # Significance level
+power <- 0.80        # Desired power
+num_predictors <- 1  # Number of predictors
+
+# Calculate the required sample size
+sample_size <- pwr.f2.test(u = num_predictors, f2 = effect_size, sig.level = alpha, power = power)
+
+# Print the result
+print(sample_size)
+
+
+# Install and load the pwr package
+install.packages("pwr")
+library(pwr)
+
+# Set the parameters
+effect_size <- 0.02  # Medium effect size
+alpha <- 0.05        # Significance level
+power <- 0.80        # Desired power
+num_terms <- 1       # Two terms (linear and quadratic)
+
+# Calculate the required sample size
+sample_size <- pwr.f2.test(u = num_terms, f2 = effect_size, sig.level = alpha, power = power)
+
+# Print the result
+print(sample_size)

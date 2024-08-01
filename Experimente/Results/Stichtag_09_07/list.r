@@ -54,6 +54,15 @@ max_age <- max(merged_filtered$Age)
 
 info_participants <- paste0("(M = ", m_age, ", SD = ", sd_age, ", ", nfemale, " females)")
 
+# Set the parameters
+effect_size <- 0.02  # Medium effect size
+alpha <- 0.05        # Significance level
+power <- 0.80        # Desired power
+num_terms <- 1       # Two terms (linear and quadratic)
+
+# Calculate the required sample size
+sample_size <- pwr.f2.test(u = num_terms, f2 = effect_size, sig.level = alpha, power = power)
+
 # Add the new elements to the existing list
 analysis_data$nfemale <- nfemale
 analysis_data$m_age <- m_age
@@ -63,7 +72,7 @@ analysis_data$max_age <- max_age
 analysis_data$min_age <- min_age
 analysis_data$group_sd <- group_sd
 analysis_data$group_quantile <- group_quantile
-
+analysis_data$sample_size <- sample_size
 
 # Save the updated list
 getwd()
