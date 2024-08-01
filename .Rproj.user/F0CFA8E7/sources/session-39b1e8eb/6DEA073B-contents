@@ -1,0 +1,31 @@
+library(dplyr)
+
+# Initialize the last_correct_rule column
+look <- look %>%
+  mutate(last_correct_rule = NA_character_)
+
+# Update the data with last correct rule tracking
+look <- look %>%
+  mutate(
+    last_correct_rule_temp = if_else(response == correct_response, matching_rule, NA_character_),
+    last_correct_rule = coalesce(last_correct_rule_temp, lag(last_correct_rule, default = NA))
+  ) %>%
+  select(-last_correct_rule_temp)  # Remove the temporary column
+
+# Adjust the correct_response column by one for the calculation
+look <- look %>%
+  mutate(
+    adjusted_correct_response = lag(correct_response, default = NA)
+  )
+
+# Calculate perseverative errors with updated conditions
+look <- look %>%
+  mutate(
+    is_incorrect = response != adjusted_correct_response,
+    last_rule_persisted = !is.na(last_correct_rule),
+    color_condition = if_else(last_rule_persisted, last_correct_rule == "color" & matching_rule != "color" & chosen_color == response_color, FALSE),
+    shape_condition = if_else(last_rule_persisted, last_correct_rule == "shape" & matching_rule != "shape" & chosen_shape == response_shape, FALSE),
+    number_condition = if_else(last_rule_persisted, last_correct_rule == "number" & matching_rule != "number" & chosen_number == response_number, FALSE),
+    perseverative_error = last_rule_persisted & (color_condition | shape_condition | number_condition)
+  ) %>%
+  select(-adjusted_correct_response)  # Remove the adjusted column if not needed later

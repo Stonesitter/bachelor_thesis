@@ -1,0 +1,40 @@
+hist(merged_data$cum_perseverative_error)
+summary(merged_data$cum_perseverative_error)
+boxplot(merged_data$cum_perseverative_error)
+sort(merged_data$cum_perseverative_error)
+
+merged_data[merged_data$cum_perseverative_error == 0, ]
+look2 <- look[look$cum_perseverative_error == 0 & look$total_responses == 64, ]
+look2
+look3 <- look2$jatosStudyResultId
+look3
+look[ , look3 %in% look$jatosStudyResultId]
+look_filtered <-look[look$jatosStudyResultId %in% look3, ]
+
+# Assuming 'variable' is the column based on which you want to filter
+
+# Calculate the IQR
+Q1 <- quantile(merged_data$cum_perseverative_error, 0.25, na.rm = TRUE)
+Q3 <- quantile(merged_data$cum_perseverative_error, 0.75, na.rm = TRUE)
+IQR <- Q3 - Q1
+
+# Determine the upper and lower bounds
+lower_bound <- Q1 - 1.5 * IQR
+upper_bound <- Q3 + 1.5 * IQR
+
+# Filter merged_data based on the calculated bounds
+merged_filtered <- merged_data[merged_data$cum_perseverative_error >= lower_bound & merged_data$cum_perseverative_error <= upper_bound, ]
+
+
+boxplot(merged_filtered$cum_perseverative_error)
+
+merged_filtered[merged_filtered$cum_perseverative_error < 5, ]
+id <- which(merged_filtered$cum_perseverative_error < 5)
+jatos <- merged_filtered$jatosStudyResultId[id]
+bool <- merged_filtered$jatosStudyResultId %in% jatos
+merged_filtered[bool, ]
+# View the filtered dataset
+print(merged_filtered)
+
+bool <- look$jatosStudyResultId %in% jatos
+look4 <- look[bool, ]
