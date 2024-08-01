@@ -17,7 +17,7 @@ print(merged_data)
 # Speichern als CSV-Datei im angegebenen Verzeichnis
 
 # write.csv(merged_data, file = paste0(path, "/merged_data_0907.csv"), row.names = FALSE)
-
+# write.csv(merged_filtered, file = paste0(path, "/merged_filtered_0907.csv"), row.names = FALSE)
 
 
 

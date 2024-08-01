@@ -1,38 +1,39 @@
+library(dplyr)
 # Create the 'correct' column
-look <- look %>%
+data <- data %>%
   mutate(
     correct = response == correct_response
   )
 
 # Create the 'shifted_correct' column by shifting the 'correct' column up by one
-look <- look %>%
+data <- data %>%
   mutate(
     shifted_correct = lead(correct, default = TRUE)
   )
 
 
 # Initialize the last_correct_rule column
-look <- look %>%
+data <- data %>%
   mutate(perseverative_rule = NA_character_)
 
 
 
 # Initialize the perseverative_rule column and a variable to store the current value
-look$perseverative_rule <- NA_character_
+data$perseverative_rule <- NA_character_
 current_value <- NA_character_
 
 # Loop through each row to update perseverative_rule
-for (i in 1:nrow(look)) {
-  if (look$shifted_correct[i]) {
-    current_value <- look$matching_rule[i]
+for (i in 1:nrow(data)) {
+  if (data$shifted_correct[i]) {
+    current_value <- data$matching_rule[i]
   }
-  look$perseverative_rule[i] <- current_value
+  data$perseverative_rule[i] <- current_value
 }
 
 
 
 # Determine the attributes of the chosen card based on the response
-look <- look %>%
+data <- data %>%
   mutate(
     chosen_color = case_when(
       response == "a" ~ color1,
@@ -59,7 +60,7 @@ look <- look %>%
 
 
 # Calculate perseverative errors with updated conditions using the shifted_correct
-look <- look %>%
+data <- data %>%
   mutate(
     is_incorrect = !shifted_correct,
     rule_persisted = !is.na(perseverative_rule),
@@ -73,7 +74,7 @@ look <- look %>%
 library(dplyr)
 
 # Add a column to count the cumulative number of perseverative errors for each participant
-look <- look %>%
+data <- data %>%
   group_by(jatosStudyResultId) %>%  # Use 'jatosStudyResultId' to group by participant
   mutate(
     cum_perseverative_error = cumsum(perseverative_error)
@@ -84,11 +85,6 @@ look <- look %>%
 merged_data <- merged_data %>%
   left_join(exp_result %>% select(jatosStudyResultId, cum_perseverative_error), by = "jatosStudyResultId")
 
-# View the updated dataset
-print(look)
+# Assuming merged_data is your data frame
+merged_data$p_error <- round((merged_data$cum_perseverative_error / 64) * 100, 2)
 
-# View the updated dataset
-print(look)
-
-# View the updated dataset
-print(look)
